@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>منظفات لوكا — المتجر والشات الذكي</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<style>
+:root{
+  --accent1:#ff6b6b; --accent2:#ffb86b; --accent3:#6bd4ff; --accent4:#b06bff; --text:#222;
+}
+html,body{height:100%;margin:0;font-family:"Segoe UI",Tahoma,Arial,sans-serif;color:var(--text);}
+body{display:flex;flex-direction:column;align-items:stretch;animation:bgChange 16s infinite linear;}
+@keyframes bgChange{
+  0%{background:linear-gradient(120deg,#fff0f3,#e6f7ff);}
+  25%{background:linear-gradient(120deg,#fffde7,#e8fff1);}
+  50%{background:linear-gradient(120deg,#f0f6ff,#fff0f7);}
+  75%{background:linear-gradient(120deg,#fff8e6,#f3e8ff);}
+  100%{background:linear-gradient(120deg,#fff0f3,#e6f7ff);}
+}
+header{padding:18px 12px;display:flex;align-items:center;gap:12px;justify-content:center;flex-direction:column}
+header h1{margin:0;font-size:1.6rem}
+.sub{color:#444;font-size:0.95rem;margin-top:4px}
+
+/* Welcome */
+#welcome{position:fixed;inset:0;background:rgba(0,0,0,0.78);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;color:white;text-align:center;padding:20px}
+#welcome .card{background:linear-gradient(135deg,var(--accent3),var(--accent2));padding:24px;border-radius:14px;box-shadow:0 10px 40px rgba(0,0,0,0.4)}
+#welcome button{margin-top:16px;padding:12px 18px;border-radius:10px;border:none;background:#fff;color:#111;font-weight:700;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,0.18)}
+#welcome small{display:block;margin-top:8px;color:#f7f7f7;opacity:0.95}
+
+/* Container & Products */
+/* h1 أنيميشن نيـون + حركة صعود وهبوط */
+h1.neon-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #2f00ff; /* لون أحمر جذاب */
+  text-align: center;
+  text-shadow: 2 12 10px #d5cfe4, 5 0 20px #35a3ec;
+  animation: neonPulse 2s infinite alternate, floatUpDown 3s ease-in-out infinite alternate;
+}
+
+/* نبض النيون */
+@keyframes neonPulse {
+  2% {
+    text-shadow: 0 12 10px #0820ff, 12 0 20px #121e86;
+  }
+  50% {
+    text-shadow: 0 0 20px #2183c5, 0 0 40px #2e88bd;
+  }
+  100% {
+    text-shadow: 0 0 10px #1c03ff, 0 0 20px #4c20b3;
+  }
+}
+
+/* حركة صعود وهبوط */
+@keyframes floatUpDown {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+h2.ali-a {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #2f00ff; /* لون أحمر جذاب */
+  text-align: center;
+  text-shadow: 2 12 10px #d5cfe4, 5 0 20px #35a3ec;
+  animation: neonPulse 2s infinite alternate, floatUpDown 3s ease-in-out infinite alternate;
+}
+
+/* نبض النيون */
+@keyframes neonPulse {
+  2% {
+    text-shadow: 0 12 10px #0820ff, 12 0 20px #121e86;
+  }
+  50% {
+    text-shadow: 0 0 20px #2183c5, 0 0 40px #2e88bd;
+  }
+  100% {
+    text-shadow: 0 0 10px #1c03ff, 0 0 20px #4c20b3;
+  }
+}
+
+
+/* حركة صعود وهبوط */
+@keyframes floatUpDown {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+.container{max-width:1200px;margin:20px auto;padding:12px;width:calc(100% - 32px)}
+
+.top-controls{display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.btn{padding:10px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:700;display:inline-flex;gap:8px;align-items:center}
+.btn-primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white}
+.btn-green{background:linear-gradient(90deg,#34d399,#10b981);color:white}
+.btn-blue{background:linear-gradient(90deg,#60a5fa,#3b82f6);color:white}
+.btn-ghost{background:transparent;border:2px solid rgba(0,0,0,0.06)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:18px}
+.card-product{background:white;border-radius:12px;padding:12px;box-shadow:0 8px 24px rgba(16,24,40,0.06);display:flex;flex-direction:column;align-items:center;gap:8px;transition:transform .25s, box-shadow .3s; animation: fadeInUp 0.8s ease forwards;}
+.card-product:hover{transform:translateY(-8px) scale(1.05);box-shadow:0 12px 30px rgba(16,24,40,0.2)}
+.card-product img{width:120px;height:120px;object-fit:cover;border-radius:10px;animation: float 3s ease-in-out infinite alternate;}
+@keyframes float {0%{transform:translateY(0)}100%{transform:translateY(-8px)}}
+.card-product h3{margin:0;font-size:1.05rem}
+.price{font-weight:800;color:#111}
+.row{display:flex;gap:8px;align-items:center}
+.qty{width:72px;padding:8px;border-radius:8px;border:1px solid #ddd;text-align:center}
+
+/* Cart */
+.cart-panel{position:fixed;left:20px;bottom:20px;background:rgba(255,255,255,0.95);border-radius:12px;padding:12px;box-shadow:0 8px 30px rgba(0,0,0,0.12);z-index:999}
+.cart-list{max-height:240px;overflow:auto;width:320px}
+.cart-item{display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px dashed #eee}
+.send-cart{margin-top:8px;padding:10px 12px;border-radius:10px;border:none;background:linear-gradient(90deg,#06b6d4,#0891b2);color:white;font-weight:800;cursor:pointer}
+
+/* Delivery card */
+#deliveryCard{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:white;padding:18px;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,0.2);z-index:999;max-width:380px;width:90%;display:none;}
+#deliveryCard input{margin:6px 0;padding:8px;border-radius:8px;border:1px solid #ddd;width:100%;}
+#deliveryCard button{margin-top:10px;padding:10px;border-radius:10px;border:none;background:linear-gradient(90deg,#06b6d4,#0891b2);color:white;font-weight:800;cursor:pointer;width:100%;}
+/* تأثير وقت إرسال الطلب */
+@keyframes cartSend {
+  0% { transform: scale(1); box-shadow: 0 0 0 rgba(0,255,0,0); }
+  20% { transform: scale(1.05); box-shadow: 0 0 15px rgba(0,255,0,0.4); }
+  40% { transform: scale(0.95); }
+  60% { transform: scale(1.05); }
+  80% { transform: scale(0.98); }
+  100% { transform: scale(1); box-shadow: 0 0 0 rgba(0,255,0,0); }
+}
+
+.sending {
+  animation: cartSend 1.5s ease-in-out;
+}
+
+/* Chat */
+#chat-toggle{position:fixed;right:20px;bottom:100px;z-index:999;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+#chat-toggle button{padding:12px;border-radius:10px;border:none;cursor:pointer;background:linear-gradient(90deg,#7c3aed,#a78bfa);color:white;font-weight:700}
+#chatbox{position:fixed;right:20px;bottom:160px;width:420px;height:520px;background:white;border-radius:12px;box-shadow:0 12px 40px rgba(2,6,23,0.2);overflow:hidden;display:none;flex-direction:column;z-index:999}
+#chatbox header{background:linear-gradient(90deg,#06b6d4,#0891b2);color:white;padding:12px;display:flex;justify-content:space-between;align-items:center}
+#chatbox .messages{flex:1;padding:12px;overflow:auto;background:linear-gradient(180deg,rgba(255,255,255,0.98),rgba(250,250,255,0.98))}
+.msg{margin:6px 0;padding:10px;border-radius:10px;max-width:85%}
+.msg.user{background:linear-gradient(90deg,#fff7ed,#fff3f0);margin-left:auto}
+.msg.bot{background:linear-gradient(90deg,#effaf9,#f0f9ff);margin-right:auto}
+#chatbox .input{display:flex;padding:10px;border-top:1px solid #eee}
+#chatbox input{flex:1;padding:10px;border-radius:10px;border:1px solid #ddd}
+#chatbox button{margin-left:8px;padding:8px 12px;border-radius:10px;border:none;background:#10b981;color:white;font-weight:700;cursor:pointer}
+
+/* Footer */
+footer{margin-top:26px;padding:18px;text-align:center;background:linear-gradient(90deg,#111827,#0f172a);color:white}
+footer .small-muted{color:#666;font-size:0.85rem}
+@keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.1);}100%{transform:scale(1);}}
+</style>
+</head>
+<body>
+
+<!-- Welcome -->
+<div id="welcome" class="animate__animated animate__fadeIn">
+  <div class="card" style="text-align:center;max-width:520px">
+    <h2 style="margin:12px 0 6px">أهلا بكم في منظفات لوكا</h2>
+    <p style="margin:0;line-height:1.4">أحسن منتجات النظافة والغسيل والتعطير — أسعار واضحة، توصيل، ودعم فني مباشر.</p>
+    <small>اضغط ادخل لبدء التصفح</small>
+    <div style="margin-top:14px">
+      <button onclick="enterSite()" title="ادخل الموقع">ادخل إلى الموقع</button>
+    </div>
+  </div>
+</div>
+
+<!-- Container -->
+<div class="container">
+  <div class="top-controls">
+   <h1 class="neon-title"> ✨✨منظفات لوكا</h1>
+
+    <div class="sub"> <h2 class="ali-a"> يوجد لدينا جميع أنواع المنظفات — أسعار واضحة </h2>
+    </div>
+  </div>
+
+  <h2 style="margin-top:18px" >قائمة المنتجات — اختر الكمية ثم اضغط إضافة</h2>
+  <div class="grid" id="productsGrid"></div>
+
+  <div class="cart-panel" id="cartPanel" style="display:none">
+    <div style="font-weight:800">عربة الطلب</div>
+    <div class="cart-list" id="cartList"></div>
+    <div style="margin-top:8px">
+      <div class="small-muted">المجموع :</div>
+      <div id="cartTotal" style="font-weight:900;margin-top:4px">0 جنيه</div>
+      <button onclick="promptDeliveryOption()">إرسال الطلب على واتساب</button>
+
+    </div>
+  </div>
+
+  <!-- Delivery -->
+  <div id="deliveryCard">
+    <h3>تفاصيل التوصيل</h3>
+    <input id="street" placeholder="اسم الشارع" />
+    <input id="building" placeholder="رقم العمارة" />
+    <input id="floor" placeholder="الدور" />
+    <input id="apartment" placeholder="رقم الشقة" />
+    <button onclick="sendCartWhats('دليفري')">إرسال الطلب</button>
+  </div>
+
+  <!-- Chat -->
+  <!-- Chat Toggle Button -->
+ 
+<!-- Chatbox -->
+<button id="openBtn" style="
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:220px;       /* طول الزر */
+  max-width:90%;     /* responsive */
+  padding:12px;
+  background:#10b981;
+  color:white;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:700;
+  font-size:1rem;
+  box-shadow:0 2px 6px rgba(0,0,0,0.3);
+">
+  اسأل لوكا عن أي حاجة
+</button>
+
+<!-- صندوق الشات -->
+<div id="chatbox" style="
+  display:none;
+  position:fixed;
+  bottom:70px;
+  right:20px;
+  width:320px;
+  max-width:90%;   /* responsive */
+  height:400px;
+  max-height:80%;
+  border:1px solid #ccc;
+  border-radius:10px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.2);
+  background:white;
+  z-index:1000;
+  display:flex;
+  flex-direction:column;
+">
+  <!-- المحتوى سيتم توليده بواسطة JS -->
+</div>
+<!-- Footer -->
+<footer>
+  <div style="display:flex;gap:12px;align-items:center;justify-content:center">
+    <div style="font-weight:800"> العنوان - بورفؤاد- الفيروز  - مشروع ال 9000  </div>
+    <a href="https://chat.whatsapp.com/ITSI5NL0KKeHQ1O6jzISzx?mode=wwt" target="_blank" style="display:flex;align-items:center">
+      <img src="phone.png" style="width:32px;height:32px;animation: pulse 1.2s infinite;" title="انضم لمجموعة واتساب" />
+    </a>
+      <h2>✨ اضغط علي ايقونه الواتساب للانضمام الي جروب لوكا للمنظفات💦</h2>
+  </div>
+</footer>
+
+<script>
+// ===== Welcome
+function enterSite(){ document.getElementById('welcome').style.display='none'; }
+
+// ===== Products & Cart
+const STORE_INFO = {
+  name: "منظفات لوكا",
+  description: "يوجد لدينا جميع أنواع المنظفات والعطور ومنتجات العناية والمنزل."
+};
+
+const PRODUCTS = [
+  {name:"مسحوق عادي", price:30},
+  {name:"مسحوق اتوماتيك", price:40},
+  {name:"برسيل جل عادي", price:12},
+  {name:"برسيل جل اوكسي عادي", price:15},
+  {name:"برسيل جل اوكسي اتوماتيك", price:20},
+  {name:"برسيل جل للهدوم السوداء (عادي/اوتوماتيك)", price:20},
+  {name:"خلطة للهدوم الالوان", price:12},
+  {name:"كلور الوان عادي", price:12},
+  {name:"كلور الوان اوتوماتيك", price:15},
+  {name:"كلوركس الوان", price:15},
+  {name:"كلور عادي", price:5},
+  {name:"دوني ازرق وبامبي", price:12},
+  {name:"فانش", price:12},
+  {name:"مبيض غسيل", price:12},
+  {name:"شامبو سجاد", price:15},
+  {name:"خلطة حمام", price:12},
+  {name:"فينك", price:14},
+  {name:"ديتول", price:12},
+  {name:"باور خام", price:12},
+  {name:"شامبو للشعر", price:45},
+  {name:"بلسم للشعر", price:45},
+  {name:"شاور (خوخ/توت/سهر الليالي/فريدة/رحيق/تفاح/لفندر/عبير الزهور)", price:20},
+  {name:"بريل اخضر", price:"7/9/10"},
+  {name:"بريل اصفر", price:"7/11"},
+  {name:"بريل فيبا", price:15},
+  {name:"بريل ابيض", price:7},
+  {name:"بريل تفاح احمر", price:9},
+  {name:"بريل ديتول", price:12},
+  {name:"بريل جلسرين", price:9},
+  {name:"معطر لبان (جو/ارض)", price:12},
+  {name:"معطر جو هند (ارض/جو)", price:12},
+  {name:"معطر كنتلوب", price:12},
+  {name:"معطر خوخ", price:12},
+  {name:"معطر توت", price:12},
+  {name:"معطر ليمون (جو/ارض)", price:12},
+  {name:"معطر برفان", price:12},
+  {name:"معطر بلاك ايس", price:12},
+  {name:"معطر نسيم البحر", price:14},
+  {name:"معطر لفندر (جو/ارض)", price:12},
+  {name:"معطر ورد (جو/ارض)", price:12},
+  {name:"معطر لوكس (جو/ارض)", price:15},
+  {name:"معطر فريدة", price:15},
+  {name:"معطر لوكا جو", price:15},
+  {name:"صابون سائل للدين (توت/برفان)", price:20},
+  {name:"فلاش", price:12},
+  {name:"اسفنجة مواعين", price:5},
+  {name:"ملمع خشب سائل", price:20},
+  {name:"ملمع زجاج سائل", price:20},
+  {name:"زهره", price:"يوجد"},
+  {name:"سلك مواعين", price:"يوجد"},
+  {name:"مشابك خشب وبلاستك", price:"يوجد"},
+  {name:"يستك وابر خياطة وخيط", price:"يوجد"},
+  {name:"مناديل سحب ومطبخ", price:"يوجد"},
+  {name:"اوكسي/باهي/بيرل/اكسيون", price:"يوجد"},
+  {name:"قزايز معطر جميع الانواع", price:"يوجد"},
+  {name:"دبابيس طرحة", price:"يوجد"},
+  {name:"قطن ودن", price:"يوجد"},
+  {name:"خلات اسنان", price:"يوجد"},
+  {name:"بخور للناموس وعادي", price:"يوجد"},
+  {name:"سويت صفا وحرير", price:"يوجد"},
+  {name:"سلك مدورة", price:"يوجد"},
+  {name:"شامبو/بلسم/حمام كريم نوع بلوب", price:"يوجد"},
+  {name:"مقشات ومسحات", price:"يوجد"},
+  {name:"شرشوبة", price:"يوجد"},
+  {name:"جروف", price:"يوجد"},
+  {name:"عصاية مقشة", price:"يوجد"},
+  {name:"بيوتي بلندر", price:"يوجد"},
+  {name:"شفرة حريمي", price:"يوجد"},
+  {name:"صابون وجه (جميع الانواع)", price:"يوجد"},
+  {name:"صابون مواعين قطع", price:"يوجد"},
+  {name:"صابون غسيل قطع", price:"يوجد"}
+];
+
+
+
+const grid = document.getElementById('productsGrid');
+PRODUCTS.forEach((p, idx)=>{
+  const card = document.createElement('div');
+  card.className='card-product animate__animated animate__fadeInUp';
+  card.innerHTML = `
+    <h3>${p.name}</h3>
+    <div class="row"><div class="price">${p.price} جنيه</div></div>
+    <div class="row">
+      <input class="qty" id="qty_${idx}" type="number" min="1" value="1" />
+      <button class="btn btn-green" onclick="addToCart(${idx})">إضافة للعربة</button>
+    </div>`;
+  grid.appendChild(card);
+});
+
+let CART = [];
+function addToCart(idx){
+  const qty = parseInt(document.getElementById('qty_'+idx).value)||1;
+  const found = CART.find(i=>i.idx===idx);
+  if(found){ found.qty += qty; } else { CART.push({idx,qty}); }
+  renderCart();
+}
+function removeCartItem(iidx){
+  CART = CART.filter(ci=>ci.idx !== iidx); renderCart();
+}
+function renderCart(){
+  const panel = document.getElementById('cartPanel');
+  const list = document.getElementById('cartList'); list.innerHTML='';
+  if(CART.length === 0){ panel.style.display='none'; return; }
+  CART.forEach(c=>{
+    const p = PRODUCTS[c.idx];
+    const row = document.createElement('div'); row.className='cart-item';
+    row.innerHTML = `<div>${p.name} x ${c.qty}</div><div>${p.price * c.qty} جنيه <button onclick="removeCartItem(${c.idx})" style="margin-left:8px">حذف</button></div>`;
+    list.appendChild(row);
+  });
+  const total = CART.reduce((s,c)=> s + (PRODUCTS[c.idx].price * c.qty), 0);
+  document.getElementById('cartTotal').textContent = total + ' جنيه';
+  panel.style.display = 'block';
+}
+
+// ===== Delivery
+/* === عرض خيارات التوصيل أو الاستلام === */
+function promptDeliveryOption(){
+  const option = prompt('هل تريد استلام أو دليفري؟ اكتب "استلام" أو "دليفري"');
+  if(!option) return;
+  if(option.toLowerCase() === 'استلام'){
+    sendCartWhats('استلام');
+  } else if(option.toLowerCase() === 'دليفري'){
+    document.getElementById('deliveryCard').style.display='block';
+  } else {
+    alert('يرجى كتابة "استلام" أو "دليفري"');
+  }
+}
+
+/* === إرسال الطلب على واتساب === */
+function sendCartWhats(type='استلام'){
+  if(CART.length===0){ 
+    alert('العربة فارغة'); 
+    return; 
+  }
+
+  // 🔹 تأثير بصري وقت الإرسال
+  const cartPanel = document.getElementById('cartPanel');
+cartPanel.classList.add('sending');
+setTimeout(() => cartPanel.classList.remove('sending'), 1500);
+
+// ترتيب المنتجات بالعربي
+const textLines = CART.map(c => {
+  const p = PRODUCTS[c.idx];
+  // صياغة بالعربي: اسم المنتج - الكمية x السعر = المجموع
+  return `${p.name} — الكمية: ${c.qty} = ${p.price * c.qty} جنيه`;
+});
+
+// المجموع الكلي
+const total = CART.reduce((s, c) => s + (PRODUCTS[c.idx].price * c.qty), 0);
+textLines.push(`المجموع الكلي: ${total} جنيه`);
+textLines.push('من منظفات لوكا 🌸');
+
+  if(type==='دليفري'){
+    const street = document.getElementById('street').value.trim();
+    const building = document.getElementById('building').value.trim();
+    const floor = document.getElementById('floor').value.trim();
+    const apartment = document.getElementById('apartment').value.trim();
+    if(!street || !building || !floor || !apartment){
+      alert('يرجى إدخال كل بيانات العنوان لتسهيل التوصيل');
+      return;
+    }
+    textLines.push(`📍 العنوان: شارع ${street}، عمارة ${building}، دور ${floor}، شقة ${apartment}`);
+    document.getElementById('deliveryCard').style.display='none';
+  }
+
+  
+
+  const text = textLines.join('\n');
+  window.open('https://wa.me/201026267461?text=' + encodeURIComponent(text), '_blank');
+
+  CART = [];
+  renderCart();
+}
+
+
+// قاعدة المعرفة
+const KB = [
+  {keys:['غسيل','غسالة','ملابس','فرز','حمل','تحميل','تحميل زائد'], reply: `🧹 النصائح الأساسية للغسيل:
+- افصل الملابس حسب اللون ونوع القماش.
+- اقرأ تعليمات الغسيل على الملابس.
+- لا تملأ الغسالة زيادة.
+- استخدم كمية مناسبة من المنظف.
+- نظف درج المساحيق والفلتر بانتظام.`},
+  {keys:['بقع','بقعة','بقعه','بقع صعبه','بقعة زيت','ازيل بقعة'], reply: `🔥 معالجة البقع:
+- انقع البقعة في ماء بارد.
+- للبقع الصعبة: خلي عجينة بيكربونات + ماء، 10 دقائق، افرك ثم اغسل.
+- للبقع الزيتية: استخدم سائل غسيل الأطباق أو مزيل بقع قبل الغسيل.`},
+  {keys:['رائحة','روائح','رائحة غسالة','روائح الملابس'], reply: `👃 التخلص من الروائح:
+- جفف الملابس في الهواء الطلق.
+- نظف الغسالة دورياً (خل/منظف).
+- اترك باب الغسالة مفتوح بعد الدورة.`},
+  {keys:['شامبو','شعر','تساقط','قشرة','جاف','دهني'], reply: `🪞 مشاكل الشعر:
+💔 تقصف وجفاف: استخدم شامبو طبيعي + بلسم.
+❄️ قشرة الشعر: مرة في الأسبوع شامبو ضد القشرة.
+💨 تساقط الشعر: ماسكات زيت جوز الهند أو البيض، قلل الصبغات والمكواة.`},
+  {keys:['معطر','تعطير','فواحه','زيوت'], reply: `🌸 أنواع المعطرات:
+- معطر الغسيل: Comfort، Lenor، Downy.
+- معطر الجو: رش مباشر أو جهاز.
+- بخاخ الشعر المعطر: Tresemmé، L’Oreal Hair Perfume.`},
+  {keys:['كل','متوفر','كل المنتجات'], reply: `📦 كل المنتجات: مسحوق، برسيل، كلور، بريل، شامبو، بلسم، شاور، معطرات، صابون، أدوات منزلية.`},
+
+  // إضافة المنتجات والتفاصيل الجديدة
+  {keys:['مسحوق غسيل'], reply: `👕 مسحوق الغسيل العادي
+للألوان القوية والملابس البيضاء.
+طريقة الاستعمال: كوب صغير لكل غسلة حسب تعليمات الغسالة
+أمثلة: Ariel, Persil, Tide.`},
+  {keys:['مسحوق للملابس الحساسة'], reply: `👕 مسحوق للملابس الحساسة
+للقطن، الحرير، والصوف.
+طريقة الاستعمال: حسب تعليمات الغسالة
+أمثلة: Woolite, Persil Sensitive.`},
+  {keys:['سائل غسيل','جل'], reply: `🧴 سائل غسيل (Liquid Detergent / Gel)
+مناسب للملابس الملونة والحساسة، أقل تهييج للجلد.
+طريقة الاستعمال: 2–3 ملاعق كبيرة حسب كمية الغسيل
+أمثلة: Ariel Gel, Persil Liquid, Tide Liquid.`},
+  {keys:['منظف بقع'], reply: `🔥 منظف بقع (Stain Remover)
+للبقع الصعبة زي الزيت والشاي والعصير.
+طريقة الاستعمال: ضع على البقعة قبل الغسيل واترك 5–10 دقائق
+أمثلة: Vanish, OxiClean, Dr. Beckmann.`},
+  {keys:['منظف غسالات'], reply: `🧼 منظف غسالات
+لتنظيف الغسالة من الترسبات والروائح.
+طريقة الاستعمال: شغل دورة فارغة مع مسحوق أو خل أبيض
+أمثلة: Calgon, Dr. Beckmann Washing Machine Cleaner.`},
+  {keys:['ملطف الملابس','Fabric Softener'], reply: `🌸 ملطف الملابس / Fabric Softener
+يعطي نعومة ورائحة حلوة للملابس.
+أمثلة: Comfort, Downy, Lenor.`},
+  {keys:['منظف أرضيات'], reply: `🏠 منظف أرضيات
+للمطبخ، الحمام، البلاط، السيراميك، الباركيه
+طريقة الاستعمال: اخلط كمية حسب التعليمات وامسح الأرضية
+أمثلة: Domex, Harpic, Mr. Muscle Floor Cleaner.`},
+  {keys:['معطر أرضيات'], reply: `🌸 معطر أرضيات
+يضاف مع الماء أثناء المسح.
+أمثلة: Dettol Floor Fresh, Harpic Floor Fresh.`},
+  {keys:['منظف متعدد الأسطح'], reply: `🏠 منظف متعدد الأسطح
+لكل الأسطح في البيت، المطبخ والحمام
+طريقة الاستعمال: رش وامسح
+أمثلة: Dettol Multi-Surface, Mr. Muscle Multi-Surface.`},
+  {keys:['منظف مطبخ','منظف دهون'], reply: `🏠 منظف مطبخ
+لإزالة الدهون والزيوت الصعبة على البوتاجاز والشفاط
+أمثلة: Cif Kitchen Cleaner, Mr. Muscle Kitchen Degreaser.`},
+  {keys:['منظف زجاج'], reply: `🏠 منظف زجاج ومرايا
+للنوافذ والمرايا
+طريقة الاستعمال: رش وامسح بفوطة جافة
+أمثلة: Windex, Glass Plus.`},
+  {keys:['مزيل الرواسب','مزيل الكلس'], reply: `🏠 مزيل الرواسب والكلس
+لإزالة الترسبات من الحنفيات والدش
+أمثلة: Viakal, Cillit Bang Limescale Remover.`},
+  {keys:['مبيض','كلور'], reply: `🏠 مبيض / كلور
+لتطهير الحمام والأرضيات البيضاء
+أمثلة: Domex Bleach, Clorox.`},
+  {keys:['سائل أطباق'], reply: `🍽️ سائل أطباق
+لإزالة الدهون من الصحون
+طريقة الاستعمال: ضع كمية وافرك بالليفة
+أمثلة: Fairy, Pril, Dawn.`},
+  {keys:['منظف فرن','ميكروويف'], reply: `🍽️ منظف فرن وميكروويف
+لإزالة الدهون المتراكمة
+أمثلة: Easy-Off, Cif Oven Cleaner.`},
+  {keys:['منظف حمام','Toilets Cleaner'], reply: `🛁 منظف حمام / Toilets Cleaner
+لتلميع المرحاض والمغاسل
+أمثلة: Harpic, Domex Toilet Cleaner, Lysol Toilet Bowl Cleaner.`},
+  {keys:['مزيل العفن','فطريات'], reply: `🛁 مزيل العفن والفطريات
+للتخلص من العفن على الجدران والمواسير
+أمثلة: Clorox Mold & Mildew, Cillit Bang Mold & Mildew.`},
+  {keys:['صابون يدين','Handwash'], reply: `🧼 صابون يدين / Handwash
+للتنظيف اليومي
+أمثلة: Dettol Handwash, Lifebuoy, Lux.`},
+  {keys:['سائل استحمام','Shower Gel'], reply: `🧴 سائل استحمام / Shower Gel
+للاستحمام اليومي
+أمثلة: Dove, Nivea, Palmolive.`},
+  {keys:['معطر جو','Aerosol','Spray'], reply: `🌸 معطر جو (Aerosol / Spray)
+رش سريع لإزالة الروائح
+أمثلة: Air Wick, Glade, Febreze.`},
+  {keys:['معطر كهربائي','Plug-in'], reply: `🌸 معطر جو كهربائي / Plug-in
+رائحة ثابتة لفترة طويلة
+أمثلة: Glade Plug-ins, Air Wick Electric.`},
+  {keys:['معطر خزانات','دولاب','أحذية'], reply: `🌸 معطر خزانات / دولاب / أحذية
+أكياس أو قطع عطريه
+أمثلة: Lavender Sachets, Air Fresh Sachets.`},
+  {keys:['بخاخ الشعر المعطر'], reply: `🌸 بخاخ الشعر المعطر
+يعطي ريحة حلوة للشعر بدون مواد تقيلة
+أمثلة: Tresemmé Hair Mist, L’Oreal Hair Perfume.`}
+];
+function openChat() {
+  const box = document.getElementById('chatbox');
+  if(!box) return;
+
+  if(box.style.display === 'flex'){
+    box.style.display = 'none';
+    return;
+  }
+
+  box.style.display = 'flex';
+
+  if(!document.getElementById('messagesArea')){
+    box.innerHTML = `
+      <header style="display:flex;justify-content:space-between;align-items:center;padding:12px;background:linear-gradient(90deg,#06b6d4,#0891b2);color:white;border-radius:10px 10px 0 0;">
+        لوكا 🧴
+        <button onclick="closeChat()" style="background:none;border:none;color:white;font-size:1.2rem;cursor:pointer;">×</button>
+      </header>
+      <div class="messages" id="messagesArea" style="flex:1;padding:12px;overflow:auto;background:#f9fafb;"></div>
+      <div class="input" style="display:flex;padding:10px;border-top:1px solid #eee;">
+        <input id="chatInputMsg" placeholder="مثال: ازاي ازيل بقعة زيت؟" style="flex:1;padding:10px;border-radius:10px;border:1px solid #ddd;" />
+        <button onclick="processChat()" style="margin-left:8px;padding:8px 12px;border-radius:10px;border:none;background:#10b981;color:white;font-weight:700;cursor:pointer;">أرسل</button>
+      </div>
+    `;
+
+    const area = document.getElementById('messagesArea');
+    const welcome = document.createElement('div');
+    welcome.className = 'msg bot';
+    welcome.innerHTML = 'لوكا 🧴: أهلاً! 🧴 اسألني عن الغسيل، البقع، الشامبو، المعطرات، أو أي حاجة في المنظفات.';
+    area.appendChild(welcome);
+  }
+}
+
+// إغلاق الشات
+function closeChat() {
+  document.getElementById('chatbox').style.display = 'none';
+}
+
+// معالجة الرسائل
+function processChat() {
+  const input = document.getElementById('chatInputMsg');
+  if(!input) return;
+  const msg = input.value.trim();
+  if(!msg) return;
+
+  const area = document.getElementById('messagesArea');
+  const userDiv = document.createElement('div');
+  userDiv.className = 'msg user';
+  userDiv.textContent = 'أنت: ' + msg;
+  area.appendChild(userDiv);
+  area.scrollTop = area.scrollHeight;
+  input.value = '';
+
+  const typingDiv = document.createElement('div');
+  typingDiv.className = 'msg bot';
+  typingDiv.innerHTML = 'لوكا 🧴: <em>typing...</em>';
+  area.appendChild(typingDiv);
+  area.scrollTop = area.scrollHeight;
+
+  let reply = 'آسف، ممكن توضّح سؤالك أكتر؟';
+  const low = msg.toLowerCase();
+  for(const kb of KB){
+    for(const k of kb.keys){
+      if(low.includes(k)){
+        reply = kb.reply;
+        break;
+      }
+    }
+    if(reply !== 'آسف، ممكن توضّح سؤالك أكتر؟') break;
+  }
+
+  setTimeout(()=>{
+    typingDiv.innerHTML = reply.replace(/\n/g,'<br>');
+    area.scrollTop = area.scrollHeight;
+  }, 800);
+}
+
+// إرسال بالـEnter
+document.addEventListener('keydown',(e)=>{
+  if(e.key==='Enter'){
+    const box = document.getElementById('chatbox');
+    if(box.style.display !== 'none') processChat();
+  }
+});
+
+document.getElementById('openBtn').addEventListener('click', openChat);
+</script>
+
+</body>
+</html>
